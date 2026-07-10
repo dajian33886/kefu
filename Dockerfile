@@ -7,4 +7,4 @@ COPY extracted/BOOT-INF/lib /app/libs
 
 EXPOSE 8080
 ENV JAVA_OPTS=""
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -cp '/app/app.jar:/app/libs/*' org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java", "-cp", "/app/libs/*:/app/app.jar", "org.springframework.boot.loader.JarLauncher"]
