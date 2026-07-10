@@ -26,11 +26,11 @@
                 <version>3.1.2</version>
                 <configuration>
                     <mainClass>com.kefu.KefuApplication</mainClass>
+                    <layout>JAR</layout>
                 </configuration>
                 <executions>
                     <execution>
                         <id>repackage</id>
-                        <phase>package</phase>
                         <goals>
                             <goal>repackage</goal>
                         </goals>

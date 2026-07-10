@@ -1,5 +1,5 @@
 # Build stage: compile Java source code with Maven
-FROM eclipse-temurin:17-jdk-jammy as builder
+FROM eclipse-temurin:17-jdk-jammy AS builder
 WORKDIR /src
 
 # Set Maven mirror for faster dependency download
@@ -39,5 +39,5 @@ ENV JAVA_OPTS="-Xms128m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseG1GC -XX:+Use
 # Health check endpoint
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 CMD curl -f http://localhost:8080/actuator/health || exit 1
 
-# Start application with explicit Spring Boot loader class to avoid class-not-found startup issues
-ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -cp /app/app.jar org.springframework.boot.loader.JarLauncher --spring.config.additional-location=/app/application.properties"]
+# Start application with the explicit Spring Boot entry class to avoid class-not-found startup issues
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -cp /app/app.jar com.kefu.KefuApplication --spring.config.additional-location=file:/app/application.properties"]
