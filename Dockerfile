@@ -7,4 +7,4 @@ COPY target/dependency /app/libs
 
 EXPOSE 8080
 ENV JAVA_OPTS=""
-ENTRYPOINT ["java", "-cp", "/app/libs/*:/app/classes", "com.kefu.KefuApplication"]
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -cp /app/libs/*:/app/classes com.kefu.KefuApplication"]
