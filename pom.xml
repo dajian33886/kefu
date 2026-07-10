@@ -29,6 +29,8 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>repackage</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>repackage</goal>
                         </goals>
