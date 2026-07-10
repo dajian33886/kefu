@@ -7,6 +7,12 @@
     <artifactId>kefu-snapdeploy</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.2</version>
+        <relativePath/> 
+    </parent>
     <name>kefu-snapdeploy</name>
     <description>Deployment metadata for SnapDeploy; no paid database dependency is declared.</description>
     <properties>
@@ -21,7 +27,20 @@
                 <configuration>
                     <mainClass>com.kefu.KefuApplication</mainClass>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
 </project>
