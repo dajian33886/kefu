@@ -1,0 +1,56 @@
+server:
+  address: 0.0.0.0
+  port: ${SERVER_PORT:8080}
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+  error:
+    include-stacktrace: never
+    include-message: never
+
+spring:
+  application:
+    name: kefu-backend
+  mvc:
+    throw-exception-if-no-handler-found: false
+  web:
+    resources:
+      add-mappings: true
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:kefu;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    driver-class-name: ${DB_DRIVER_CLASS_NAME:org.h2.Driver}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:}
+  jpa:
+    database-platform: ${DB_DIALECT:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+management:
+  server:
+    port: ${MANAGEMENT_SERVER_PORT:8080}
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+      roles: NONE
+
+jwt:
+  secret: ${JWT_SECRET:xQ7#pZ9&vM2!kL4*sN1@bR3^fT5$gH8%jW6+eY0~dU}
+
+spring.datasource.hikari:
+  maximum-pool-size: 10
+  minimum-idle: 2
+  connection-timeout: 20000
+  idle-timeout: 300000
+  auto-commit: true

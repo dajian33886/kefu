@@ -19,6 +19,30 @@
         <java.version>17</java.version>
     </properties>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>.</directory>
+                <includes>
+                    <include>index.html</include>
+                    <include>css/**</include>
+                    <include>js/**</include>
+                    <include>img/**</include>
+                    <include>fonts/**</include>
+                    <include>assets/**</include>
+                    <include>landing/**</include>
+                    <include>kjs-assets/**</include>
+                    <include>share-assets/**</include>
+                    <include>fanghong/**</include>
+                    <include>manifest.webmanifest</include>
+                    <include>sw.js</include>
+                    <include>404.html</include>
+                    <include>manifest.mf</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
